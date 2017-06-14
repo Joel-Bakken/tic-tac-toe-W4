@@ -18,7 +18,7 @@
 
     Player.prototype.addTurnScore = function() {
     	this.turnScore += rollNumber;
-      if (this.turnScore + this.totalScore >= 20) {
+      if (this.turnScore + this.totalScore >= 100) {
         this.winner = true;
       }
     }
@@ -75,8 +75,8 @@ $(document).ready(function() {
   $("#form-one").submit(function(event) {
     event.preventDefault();
 
-    var inputName1 = $("#player1-name").val();
-    var inputName2 = $("#player2-name").val();
+    var inputName1 = $("#player1-name").val().trim();
+    var inputName2 = $("#player2-name").val().trim();
 
 
     $("#game-stats").show();
@@ -127,7 +127,6 @@ $(document).ready(function() {
       $("#turn-score1").text(player1.turnScore);
       $("#player1-buttons").hide();
       $("#player2-buttons").show();
-
       $("#player2-turn").addClass("blue-background");
       $("#player1-turn").removeClass("blue-background");
 

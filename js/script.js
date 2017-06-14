@@ -6,8 +6,6 @@
       this.totalScore = 0;
     }
 
-    var player1 = new Player("Mike");
-
     Player.prototype.setToZero = function() {
     	this.turnScore = 0;
     }
@@ -20,18 +18,18 @@
     	this.totalScore += this.turnScore;
     }
 
-    function roll() {
+    function roll1() {
       min = Math.ceil(1);
       max = Math.floor(6);
       rollNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-      compare();
+      compare1();
     }
 
-    function hold() {
+    function hold1() {
     	addTotalScore();
     }
 
-    function compare() {
+    function compare1() {
     	if (rollNumber === 1) {
       	player1.setToZero();
       } else {
@@ -39,12 +37,41 @@
       }
     }
 
+    function roll2() {
+      min = Math.ceil(1);
+      max = Math.floor(6);
+      rollNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      compare2();
+    }
+
+    function hold2() {
+      addTotalScore();
+    }
+
+    function compare2() {
+      if (rollNumber === 1) {
+        player2.setToZero();
+      } else {
+        player2.addTurnScore();
+      }
+    }
+
     var rollNumber;
-
-
-
 
 //UI Logic
 $(document).ready(function() {
-  $("").submit(function(event) {
+  $("#formOne").submit(function(event) {
     event.preventDefault();
+
+    var inputName1 = $("#player1-name").val();
+    var inputName2 = $("#player2-name").val();
+
+    var player1 = new Player(inputName1);
+    var player2 = new Player(inputName2);
+    //alert(player1.name + player2.name);
+    $("#output-name1").text(player1.name);
+    $("#output-name2").text(player2.name);
+    
+
+  });
+});

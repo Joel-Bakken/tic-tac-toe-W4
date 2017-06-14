@@ -7,6 +7,11 @@
       this.winner = false;
     }
 
+    Player.prototype.reset = function() {
+      this.turnScore = 0;
+      this.totalScore = 0;
+    }
+
     Player.prototype.setToZero = function() {
     	this.turnScore = 0;
     }
@@ -79,7 +84,7 @@ $(document).ready(function() {
 
     player1 = new Player(inputName1);
     player2 = new Player(inputName2);
-    //alert(player1.name + player2.name);
+
     $("#output-name1").text(player1.name);
     $("#output-name2").text(player2.name);
 
@@ -122,9 +127,7 @@ $(document).ready(function() {
       $("#turn-score1").text(player1.turnScore);
       $("#player1-buttons").hide();
       $("#player2-buttons").show();
-      //$("#player2-turn").background-color();
-      //$("#player2-turn").style.backgroundColor = '#99C262';
-      //document.getElementById("#player2-turn").background = "ffffff";
+
       $("#player2-turn").addClass("blue-background");
       $("#player1-turn").removeClass("blue-background");
 
@@ -133,6 +136,21 @@ $(document).ready(function() {
       hold2();
       $("#total-score2").text(player2.totalScore);
       $("#turn-score2").text(player2.turnScore);
+      $("#player2-buttons").hide();
+      $("#player1-buttons").show();
+      $("#player1-turn").addClass("blue-background");
+      $("#player2-turn").removeClass("blue-background");
+    });
+
+    $("#reset").click(function(event) {
+      player1.reset();
+      player2.reset();
+      rollNumber = 0;
+      $("#turn-score1").text(player1.turnScore);
+      $("#total-score1").text(player1.totalScore);
+      $("#turn-score2").text(player2.turnScore);
+      $("#total-score2").text(player2.totalScore);
+      $("#roll-number-display").text(rollNumber);
       $("#player2-buttons").hide();
       $("#player1-buttons").show();
       $("#player1-turn").addClass("blue-background");

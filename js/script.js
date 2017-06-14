@@ -4,6 +4,7 @@
     	this.name = name;
       this.turnScore = 0;
       this.totalScore = 0;
+      this.winner = false;
     }
 
     Player.prototype.setToZero = function() {
@@ -12,6 +13,9 @@
 
     Player.prototype.addTurnScore = function() {
     	this.turnScore += rollNumber;
+      if (this.turnScore + this.totalScore >= 20) {
+        this.winner = true;
+      }
     }
 
     Player.prototype.addTotalScore = function() {
@@ -75,25 +79,46 @@ $(document).ready(function() {
     $("#output-name1").text(player1.name);
     $("#output-name2").text(player2.name);
 
+    $("#player1-buttons").show();
+    $("#player2-buttons").hide();
+
     $("#roll-1").click(function(event) {
       roll1();
       $("#roll-number-display").text(rollNumber);
       $("#turn-score1").text(player1.turnScore);
+      if (player1.winner === true) {
+        alert(player1.name + " is da' winner, yo!");
+      }
+      if (rollNumber === 1) {
+        $("#player1-buttons").hide();
+        $("#player2-buttons").show();
+      }
     });
     $("#roll-2").click(function(event) {
       roll2();
       $("#roll-number-display").text(rollNumber);
       $("#turn-score2").text(player2.turnScore);
+      if (player2.winner === true) {
+        alert(player2.name + " is da' winner, yo!");
+      }
+      if (rollNumber === 1) {
+        $("#player1-buttons").show();
+        $("#player2-buttons").hide();
+      }
     });
     $("#hold-1").click(function(event) {
       hold1();
       $("#total-score1").text(player1.totalScore);
       $("#turn-score1").text(player1.turnScore);
+      $("#player1-buttons").hide();
+      $("#player2-buttons").show();
     });
     $("#hold-2").click(function(event) {
       hold2();
       $("#total-score2").text(player2.totalScore);
       $("#turn-score2").text(player2.turnScore);
+      $("#player2-buttons").hide();
+      $("#player1-buttons").show();
     });
 
   });

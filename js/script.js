@@ -73,12 +73,17 @@ $(document).ready(function() {
     var inputName1 = $("#player1-name").val();
     var inputName2 = $("#player2-name").val();
 
+
+    $("#game-stats").show();
+
+
     player1 = new Player(inputName1);
     player2 = new Player(inputName2);
     //alert(player1.name + player2.name);
     $("#output-name1").text(player1.name);
     $("#output-name2").text(player2.name);
 
+    $("#player1-turn").addClass("blue-background");
     $("#player1-buttons").show();
     $("#player2-buttons").hide();
 
@@ -92,6 +97,9 @@ $(document).ready(function() {
       if (rollNumber === 1) {
         $("#player1-buttons").hide();
         $("#player2-buttons").show();
+        $("#player2-turn").addClass("blue-background");
+        $("#player1-turn").removeClass("blue-background");
+
       }
     });
     $("#roll-2").click(function(event) {
@@ -104,6 +112,8 @@ $(document).ready(function() {
       if (rollNumber === 1) {
         $("#player1-buttons").show();
         $("#player2-buttons").hide();
+        $("#player1-turn").addClass("blue-background");
+        $("#player2-turn").removeClass("blue-background");
       }
     });
     $("#hold-1").click(function(event) {
@@ -112,6 +122,12 @@ $(document).ready(function() {
       $("#turn-score1").text(player1.turnScore);
       $("#player1-buttons").hide();
       $("#player2-buttons").show();
+      //$("#player2-turn").background-color();
+      //$("#player2-turn").style.backgroundColor = '#99C262';
+      //document.getElementById("#player2-turn").background = "ffffff";
+      $("#player2-turn").addClass("blue-background");
+      $("#player1-turn").removeClass("blue-background");
+
     });
     $("#hold-2").click(function(event) {
       hold2();
@@ -119,6 +135,8 @@ $(document).ready(function() {
       $("#turn-score2").text(player2.turnScore);
       $("#player2-buttons").hide();
       $("#player1-buttons").show();
+      $("#player1-turn").addClass("blue-background");
+      $("#player2-turn").removeClass("blue-background");
     });
 
   });

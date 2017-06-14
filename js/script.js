@@ -57,21 +57,31 @@
     }
 
     var rollNumber;
+    var player1;
+    var player2;
 
 //UI Logic
 $(document).ready(function() {
-  $("#formOne").submit(function(event) {
+  $("#form-one").submit(function(event) {
     event.preventDefault();
 
     var inputName1 = $("#player1-name").val();
     var inputName2 = $("#player2-name").val();
 
-    var player1 = new Player(inputName1);
-    var player2 = new Player(inputName2);
+    player1 = new Player(inputName1);
+    player2 = new Player(inputName2);
     //alert(player1.name + player2.name);
     $("#output-name1").text(player1.name);
     $("#output-name2").text(player2.name);
-    
+
+    $("#roll-1").click(function(event) {
+      roll1();
+      $("#roll-number-display").text(rollNumber);
+    });
+    $("#roll-2").click(function(event) {
+      roll2();
+      $("#roll-number-display").text(rollNumber);
+    });
 
   });
 });

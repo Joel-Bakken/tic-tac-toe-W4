@@ -16,6 +16,7 @@
 
     Player.prototype.addTotalScore = function() {
     	this.totalScore += this.turnScore;
+      this.turnScore = 0;
     }
 
     function roll1() {
@@ -26,7 +27,7 @@
     }
 
     function hold1() {
-    	addTotalScore();
+    	player1.addTotalScore();
     }
 
     function compare1() {
@@ -45,7 +46,7 @@
     }
 
     function hold2() {
-      addTotalScore();
+      player2.addTotalScore();
     }
 
     function compare2() {
@@ -77,10 +78,22 @@ $(document).ready(function() {
     $("#roll-1").click(function(event) {
       roll1();
       $("#roll-number-display").text(rollNumber);
+      $("#turn-score1").text(player1.turnScore);
     });
     $("#roll-2").click(function(event) {
       roll2();
       $("#roll-number-display").text(rollNumber);
+      $("#turn-score2").text(player2.turnScore);
+    });
+    $("#hold-1").click(function(event) {
+      hold1();
+      $("#total-score1").text(player1.totalScore);
+      $("#turn-score1").text(player1.turnScore);
+    });
+    $("#hold-2").click(function(event) {
+      hold2();
+      $("#total-score2").text(player2.totalScore);
+      $("#turn-score2").text(player2.turnScore);
     });
 
   });

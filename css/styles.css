@@ -7,3 +7,20 @@
 #game-stats {
   display: none;
 }
+
+td {
+border: 2px solid black;
+height: 225px;
+width: 225px;
+text-align: center;
+}
+
+.jumbotron {
+  background-color: #CFE3FF;
+}
+
+.output-square {
+  font-size: 90px;
+  font-weight: bolder;
+  color: red;
+}

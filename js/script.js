@@ -41,8 +41,10 @@ function switchPlayer() {
 
 function checkSpace(x, y) {
   if (gameBoard.board[x][y] === "X" || gameBoard.board[x][y] === "O") {
-    return true;
-  } else { return false;}
+    return 1;
+  } else if (winner != "none") {
+    return 2;
+  } else { return 0;}
 }
 function checkWinner() {
   if ((gameBoard.board[0][0] === "X" && gameBoard.board[0][1] === "X" && gameBoard.board[0][2] === "X") || (gameBoard.board[1][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[1][2] === "X") || (gameBoard.board[2][0] === "X" && gameBoard.board[2][1] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][0] === "X" && gameBoard.board[1][0] === "X" && gameBoard.board[2][0] === "X") || (gameBoard.board[0][1] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][1] === "X") || (gameBoard.board[0][2] === "X" && gameBoard.board[1][2] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X")) {
@@ -56,24 +58,26 @@ function checkWinner() {
     winner = "Draw!";
   }
 }
-//UI LOGIC
 
 var gameBoard = new Gameboard();
 var playerX = new Player("X");
 var playerO = new Player("O");
 var currentPlayer = playerO;
-var validate = false;
+var validate = 0;
 var clickCount = 0;
 var winner = "none";
 
+//UI LOGIC
 $(document).ready(function() {
 
   //click listener for row0 col0, when clicked:
   $("#r0c0").click(function(event) {
     event.preventDefault();
     validate = checkSpace(0,0);
-    if (validate === true) {
+    if (validate === 1) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
     var newSpace = new Space(0,0, currentPlayer.mark);
     gameBoard.change(newSpace);
@@ -92,6 +96,8 @@ $(document).ready(function() {
     validate = checkSpace(0,1);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
     var newSpace = new Space(0,1, currentPlayer.mark);
     gameBoard.change(newSpace);
@@ -109,6 +115,8 @@ $(document).ready(function() {
     validate = checkSpace(0,2);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
     var newSpace = new Space(0,2, currentPlayer.mark);
     gameBoard.change(newSpace);
@@ -126,6 +134,8 @@ $(document).ready(function() {
     validate = checkSpace(1,0);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
       var newSpace = new Space(1,0, currentPlayer.mark);
       gameBoard.change(newSpace);
@@ -143,6 +153,8 @@ $(document).ready(function() {
     validate = checkSpace(1,1);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
       var newSpace = new Space(1,1, currentPlayer.mark);
       gameBoard.change(newSpace);
@@ -160,6 +172,8 @@ $(document).ready(function() {
     validate = checkSpace(1,2);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
       var newSpace = new Space(1,2, currentPlayer.mark);
       gameBoard.change(newSpace);
@@ -177,6 +191,8 @@ $(document).ready(function() {
     validate = checkSpace(2,0);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
       var newSpace = new Space(2,0, currentPlayer.mark);
       gameBoard.change(newSpace);
@@ -194,6 +210,8 @@ $(document).ready(function() {
     validate = checkSpace(2,1);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
       var newSpace = new Space(2,1, currentPlayer.mark);
       gameBoard.change(newSpace);
@@ -211,6 +229,8 @@ $(document).ready(function() {
     validate = checkSpace(2,2);
     if (validate === true) {
       alert('Pick another space');
+    } else if (validate === 2) {
+      alert('Game Completed Already. Hit START PLAYING button to start a new game');
     } else {
       var newSpace = new Space(2,2, currentPlayer.mark);
       gameBoard.change(newSpace);

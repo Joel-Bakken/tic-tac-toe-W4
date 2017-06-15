@@ -17,13 +17,15 @@
           <li>The first player to get 3 of their symbols in a row, vertically, horizontally, or diagonally will win!</li>
           <li>If the board is full and there are no lines of 3 identical symbols, there are no winners.</li>
           <li>A player can click on an empty square only once and cannot change their symbol placement.</li>
-          <li>Enter your names and get playing!</li>
+          
         </ol>
         <form id="form-one">
-          <label for="name">Name of Player 1:</label>
-          <input type="text" id="player1-name">
-          <label for="name">Name of Player 2:</label>
-          <input type="text" id="player2-name">
+          <div id="hide-names">
+            <label for="name">Name of Player 1:</label>
+            <input type="text" id="player1-name">
+            <label for="name">Name of Player 2:</label>
+            <input type="text" id="player2-name">
+          </div>
           <button type="submit" class="btn">Start Playing!</button>
         </form>
         <br>
@@ -50,7 +52,7 @@
             </tr>
           </table>
 
-          <input type="button" value="Play Again" onClick="window.location.reload()">
+
 
     </div>
 

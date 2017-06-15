@@ -42,7 +42,13 @@ function checkSpace(x, y) {
     return true;
   } else { return false;}
 }
+function checkWinner() {
+  if ((gameBoard.board[0][0] === "X" && gameBoard.board[0][1] === "X" && gameBoard.board[0][2] === "X") || (gameBoard.board[1][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[1][2] === "X") || (gameBoard.board[2][0] === "X" && gameBoard.board[2][1] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][0] === "X" && gameBoard.board[1][0] === "X" && gameBoard.board[2][0] === "X") || (gameBoard.board[0][1] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][1] === "X") || (gameBoard.board[0][2] === "X" && gameBoard.board[1][2] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X") ){
 
+    alert("x wins");
+
+}
+}
 //UI LOGIC
 
 var gameBoard = new Gameboard();
@@ -63,6 +69,7 @@ $(document).ready(function() {
     gameBoard.change(newSpace);
     //output AddClass X or O or text from currentPlayer.mark within span in li
     $("#out-r0c0").text(currentPlayer.mark);
+    checkWinner();
     switchPlayer();
     }
   });
@@ -76,6 +83,7 @@ $(document).ready(function() {
     var newSpace = new Space(0,1, currentPlayer.mark);
     gameBoard.change(newSpace);
     $("#out-r0c1").text(currentPlayer.mark);
+    checkWinner();
     switchPlayer();
     }
   });
@@ -88,6 +96,7 @@ $(document).ready(function() {
     var newSpace = new Space(0,2, currentPlayer.mark);
     gameBoard.change(newSpace);
     $("#out-r0c2").text(currentPlayer.mark);
+    checkWinner();
     switchPlayer();
     }
   });
@@ -97,10 +106,11 @@ $(document).ready(function() {
     if (validate === true) {
       alert('Pick another space');
     } else {
-    var newSpace = new Space(1,0, currentPlayer.mark);
-    gameBoard.change(newSpace);
-    $("#out-r1c0").text(currentPlayer.mark);
-    switchPlayer();
+      var newSpace = new Space(1,0, currentPlayer.mark);
+      gameBoard.change(newSpace);
+      $("#out-r1c0").text(currentPlayer.mark);
+      checkWinner();
+      switchPlayer();
     }
   });
   $("#r1c1").click(function(event) {
@@ -109,10 +119,11 @@ $(document).ready(function() {
     if (validate === true) {
       alert('Pick another space');
     } else {
-    var newSpace = new Space(1,1, currentPlayer.mark);
-    gameBoard.change(newSpace);
-    $("#out-r1c1").text(currentPlayer.mark);
-    switchPlayer();
+      var newSpace = new Space(1,1, currentPlayer.mark);
+      gameBoard.change(newSpace);
+      $("#out-r1c1").text(currentPlayer.mark);
+      checkWinner();
+      switchPlayer();
     }
   });
   $("#r1c2").click(function(event) {
@@ -121,10 +132,11 @@ $(document).ready(function() {
     if (validate === true) {
       alert('Pick another space');
     } else {
-    var newSpace = new Space(1,2, currentPlayer.mark);
-    gameBoard.change(newSpace);
-    $("#out-r1c2").text(currentPlayer.mark);
-    switchPlayer();
+      var newSpace = new Space(1,2, currentPlayer.mark);
+      gameBoard.change(newSpace);
+      $("#out-r1c2").text(currentPlayer.mark);
+      checkWinner();
+      switchPlayer();
     }
   });
   $("#r2c0").click(function(event) {
@@ -133,10 +145,11 @@ $(document).ready(function() {
     if (validate === true) {
       alert('Pick another space');
     } else {
-    var newSpace = new Space(2,0, currentPlayer.mark);
-    gameBoard.change(newSpace);
-    $("#out-r2c0").text(currentPlayer.mark);
-    switchPlayer();
+      var newSpace = new Space(2,0, currentPlayer.mark);
+      gameBoard.change(newSpace);
+      $("#out-r2c0").text(currentPlayer.mark);
+      checkWinner();
+      switchPlayer();
     }
   });
   $("#r2c1").click(function(event) {
@@ -145,10 +158,11 @@ $(document).ready(function() {
     if (validate === true) {
       alert('Pick another space');
     } else {
-    var newSpace = new Space(2,1, currentPlayer.mark);
-    gameBoard.change(newSpace);
-    $("#out-r2c1").text(currentPlayer.mark);
-    switchPlayer();
+      var newSpace = new Space(2,1, currentPlayer.mark);
+      gameBoard.change(newSpace);
+      $("#out-r2c1").text(currentPlayer.mark);
+      checkWinner();
+      switchPlayer();
     }
   });
   $("#r2c2").click(function(event) {
@@ -157,10 +171,11 @@ $(document).ready(function() {
     if (validate === true) {
       alert('Pick another space');
     } else {
-    var newSpace = new Space(2,2, currentPlayer.mark);
-    gameBoard.change(newSpace);
-    $("#out-r2c2").text(currentPlayer.mark);
-    switchPlayer();
+      var newSpace = new Space(2,2, currentPlayer.mark);
+      gameBoard.change(newSpace);
+      $("#out-r2c2").text(currentPlayer.mark);
+      checkWinner();
+      switchPlayer();
     }
   });
 });

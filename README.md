@@ -1,13 +1,15 @@
-# Pig Dice Game
-A web page that allows 2-players to take turns rolling a single die with a range of 1-6 in value. The first player to reach a score of 100 or more wins. A player can roll as often as they desire during their turn, and every number value rolled will be added to their final score once their turn is complete. A player's turn is complete if they decide to hold where they are with the total value of their turn, however the player's turn is ended immediately if at any point they roll a value of 1 and all points acquired during that turn are forfited and not added to their total score. When one player's turn is over, it becomes the other player's turn.
+# Tic-Tac-Toe
+A web page that allows 2-players to take alternating turns clicking on squares within a 3x3 game board with Xs and Os. The first player to line up 3 squares with their designated symbol horizontally, vertically, or diagonally, wins. If every field in the board is populated with a symbol, but there are no line ups of 3 symbols, the game is a wash with no winners. Immediately after a player clicks on a square, their turn is over and it becomes the other player's turn.
 
 ## Code Specs
 |Behavior - Plain English|Input|Output|
 |---|---|---|
-|Clicking the roll button will return a value of 1-6|Click Roll Button|One of the potential values will populate in their roll score: 1,2,3,4,5,6|
-|A player's turn is complete by clicking the hold button and their turn score is added to their total score|Hold button is clicked|Total Score increases by the turn score amount|
-|A player's turn is complete by rolling a 1 value and their turn score becomes 0 in value|Player rolls a 1 value|The player's turn score becomes 0 and it's the other player's turn|
-|A player is given a win notification when their total score is greater than or equal to 100|Player clicks on the hold button after the sum of the player's turn score and total score are 100 or greater|The player is notified that they have won|
+|A player's turn is complete by clicking on an empty square|An empty square is clicked|The player's symbol appears and it becomes the other player's turn|
+|A player is given a win notification after they click on a square which completes a 3 square line up vertically, horizontally, or diagonally|Player clicks on an empty square in line with 2 other squares that have their symbols|The player is notified that they have won|
+|The game notifies both players that there is no winner if the last square is clicked on and doesn't complete a line of 3 same symbols|Either player clicks on an empty square without completing a line|A message appears declaring no winners|
+|Either player enters their names and clicks the Start Playing! button to have the game board appear below and their names displayed|A player inputs their name and clicks the Start Playing! button|The game board appears and their inputted name appears|
+|A populated square cannot be altered when clicked upon|Either player clicks on any populated squares|Nothing happens|
+|If a user clicks on the New Game button, the player's names stay the same and the symbols are cleared from the board|A user clicks the New Game button|All the symbols disappear from the board and the player's names remain at the top|
 
 ## Technologies Used
 * HTML

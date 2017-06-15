@@ -70,7 +70,6 @@ $(document).ready(function() {
     } else {
     var newSpace = new Space(0,0, currentPlayer.mark);
     gameBoard.change(newSpace);
-    //output AddClass X or O or text from currentPlayer.mark within span in li
     $("#out-r0c0").text(currentPlayer.mark);
     clickCount++;
     checkWinner();

@@ -13,6 +13,8 @@ function Gameboard() {
   }
 }
 
+
+
 function Space(xCoord, yCoord, mark) {
 	this.xCoord = xCoord;
   this.yCoord = yCoord;
@@ -44,11 +46,14 @@ function checkSpace(x, y) {
 }
 function checkWinner() {
   if ((gameBoard.board[0][0] === "X" && gameBoard.board[0][1] === "X" && gameBoard.board[0][2] === "X") || (gameBoard.board[1][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[1][2] === "X") || (gameBoard.board[2][0] === "X" && gameBoard.board[2][1] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][0] === "X" && gameBoard.board[1][0] === "X" && gameBoard.board[2][0] === "X") || (gameBoard.board[0][1] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][1] === "X") || (gameBoard.board[0][2] === "X" && gameBoard.board[1][2] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][2] === "X") || (gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X")) {
-    alert("x wins");
+    //alert("x wins");
+    winner = "Player X Wins";
   } else if ((gameBoard.board[0][0] === "O" && gameBoard.board[0][1] === "O" && gameBoard.board[0][2] === "O") || (gameBoard.board[1][0] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[1][2] === "O") || (gameBoard.board[2][0] === "O" && gameBoard.board[2][1] === "O" && gameBoard.board[2][2] === "O") || (gameBoard.board[0][0] === "O" && gameBoard.board[1][0] === "O" && gameBoard.board[2][0] === "O") || (gameBoard.board[0][1] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][1] === "O") || (gameBoard.board[0][2] === "O" && gameBoard.board[1][2] === "O" && gameBoard.board[2][2] === "O") || (gameBoard.board[0][0] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][2] === "O") || (gameBoard.board[0][2] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][0] === "O")) {
-    alert("O wins");
+    //alert("O wins");
+    winner = "Player O Wins";
   } else if (clickCount === 9) {
-    alert('draw');
+    //alert('draw');
+    winner = "Draw!";
   }
 }
 //UI LOGIC
@@ -59,8 +64,10 @@ var playerO = new Player("O");
 var currentPlayer = playerO;
 var validate = false;
 var clickCount = 0;
+var winner = "none";
 
 $(document).ready(function() {
+
   //click listener for row0 col0, when clicked:
   $("#r0c0").click(function(event) {
     event.preventDefault();
@@ -73,6 +80,9 @@ $(document).ready(function() {
     $("#out-r0c0").text(currentPlayer.mark);
     clickCount++;
     checkWinner();
+    if (winner != "none") {
+      $("#game-status").text(winner);
+    }
     switchPlayer();
     }
   });
@@ -88,6 +98,9 @@ $(document).ready(function() {
     $("#out-r0c1").text(currentPlayer.mark);
     clickCount++;
     checkWinner();
+    if (winner != "none") {
+      $("#game-status").text(winner);
+    }
     switchPlayer();
     }
   });
@@ -102,6 +115,9 @@ $(document).ready(function() {
     $("#out-r0c2").text(currentPlayer.mark);
     clickCount++;
     checkWinner();
+    if (winner != "none") {
+      $("#game-status").text(winner);
+    }
     switchPlayer();
     }
   });
@@ -116,6 +132,9 @@ $(document).ready(function() {
       $("#out-r1c0").text(currentPlayer.mark);
       clickCount++;
       checkWinner();
+      if (winner != "none") {
+        $("#game-status").text(winner);
+      }
       switchPlayer();
     }
   });
@@ -130,6 +149,9 @@ $(document).ready(function() {
       $("#out-r1c1").text(currentPlayer.mark);
       clickCount++;
       checkWinner();
+      if (winner != "none") {
+        $("#game-status").text(winner);
+      }
       switchPlayer();
     }
   });
@@ -144,6 +166,9 @@ $(document).ready(function() {
       $("#out-r1c2").text(currentPlayer.mark);
       clickCount++;
       checkWinner();
+      if (winner != "none") {
+        $("#game-status").text(winner);
+      }
       switchPlayer();
     }
   });
@@ -158,6 +183,9 @@ $(document).ready(function() {
       $("#out-r2c0").text(currentPlayer.mark);
       clickCount++;
       checkWinner();
+      if (winner != "none") {
+        $("#game-status").text(winner);
+      }
       switchPlayer();
     }
   });
@@ -172,6 +200,9 @@ $(document).ready(function() {
       $("#out-r2c1").text(currentPlayer.mark);
       clickCount++;
       checkWinner();
+      if (winner != "none") {
+        $("#game-status").text(winner);
+      }
       switchPlayer();
     }
   });
@@ -186,9 +217,13 @@ $(document).ready(function() {
       $("#out-r2c2").text(currentPlayer.mark);
       clickCount++;
       checkWinner();
+      if (winner != "none") {
+        $("#game-status").text(winner);
+      }
       switchPlayer();
     }
   });
+
 });
 
 
